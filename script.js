@@ -40,4 +40,45 @@ function playerChoice() {
 
 function playRound() {
   const winner = win(playerChoice(), computerChoice());
+  if (winner == "playerWin") {
+    console.log("You win this round");
+    return "a";
+  } else if (winner == "computerWin") {
+    console.log("The AI wins this round");
+    return "b";
+  } else {
+    console.log("It is a deuce, lets try again");
+    return "c";
+  }
+}
+
+function game() {
+  let playerScore = 0,
+    computerScore = 0;
+
+  for (let i = 0; i < 5; i++) {
+    if (playerScore == 3 || computerScore == 3) {
+      break;
+    }
+    let cas = playRound();
+    if (cas == "a") {
+      playerScore++;
+    } else if (cas == "b") {
+      computerScore++;
+    } else {
+      i -= 1;
+    }
+  }
+  if (playerScore < computerScore) {
+    console.log(
+      "The AI wins the game with a score of " +
+        computerScore +
+        " to " +
+        playerScore
+    );
+  } else {
+    console.log(
+      "You win the game with a score of " + playerScore + " to " + computerScore
+    );
+  }
 }
