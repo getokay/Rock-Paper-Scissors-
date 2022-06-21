@@ -26,13 +26,13 @@ function win(player, computer) {
   }
 }
 function playerChoice() {
-  let play = prompt("Insert Rock, Papper or Scissors");
+  let play = prompt("Insert Rock, Paper or Scissors");
   while (
     play.toLocaleLowerCase() != "rock" &&
     play.toLocaleLowerCase() != "paper" &&
     play.toLocaleLowerCase() != "scissors"
   ) {
-    play = prompt("Insert Rock, Papper or Scissors");
+    play = prompt("Insert Rock, Paper or Scissors");
   }
   console.log("You played " + play);
   return play;
